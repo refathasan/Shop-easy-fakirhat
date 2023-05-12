@@ -1,1 +1,1 @@
-# Shop-easy-fakirhat a realtime project
+# Shop-easy-fakirhat
