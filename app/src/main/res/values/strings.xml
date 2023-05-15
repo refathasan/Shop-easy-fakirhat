@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ShopEasyEcommarceFakirhat</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="shop_easy_fakirhat">Shop Easy Fakirhat</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+</resources>
