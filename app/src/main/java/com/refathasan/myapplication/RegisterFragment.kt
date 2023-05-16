@@ -11,6 +11,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +29,7 @@ class RegisterFragment : Fragment() {
     private lateinit var userName: EditText
     private lateinit var password: EditText
     private lateinit var confirmPassword: EditText
+    private lateinit var firebaseAuthentication:FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +38,7 @@ class RegisterFragment : Fragment() {
         var view = inflater.inflate(R.layout.fragment_register, container, false)
         userName = view.findViewById(R.id.edt_user_name)
         password = view.findViewById(R.id.edt_password)
+        firebaseAuthentication = Firebase.auth
         confirmPassword = view.findViewById(R.id.edt_conf_password)
         view.findViewById<Button>(R.id.btn_login).setOnClickListener {
             var navLogin = activity as FragmentNavigationInterface
@@ -43,6 +48,25 @@ class RegisterFragment : Fragment() {
             validateForm()
         }
         return view
+    }
+
+    /**
+     * Firebase Registration method
+     */
+    private fun firebaseSingUp() {
+        firebaseAuthentication.createUserWithEmailAndPassword(userName.text.toString(),password.text.toString()).addOnCompleteListener {
+                task->
+            if(task.isSuccessful){
+                var homeFragment = activity as FragmentNavigationInterface
+                homeFragment.navifateFragment(HomeFragment(),true)
+                Toast.makeText(context, "Register Successful", Toast.LENGTH_SHORT)
+                    .show()
+            }else{
+
+                Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
     }
     /**
      * validateForm method to check email, password
@@ -71,8 +95,8 @@ class RegisterFragment : Fragment() {
                     if (password.text.toString().length >= 5) {
                         if (password.text.toString() == confirmPassword.text.toString()) {
                             //temporary Toast message would be change in final version
-                            Toast.makeText(context, "Register Successful", Toast.LENGTH_SHORT)
-                                .show()
+                            firebaseSingUp()
+
                         } else {
                             confirmPassword.setError("Password mismatched", icon)
                         }
@@ -85,6 +109,8 @@ class RegisterFragment : Fragment() {
             }
         }
     }
+
+
 
 }
 
