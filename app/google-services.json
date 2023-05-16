@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "745064970356",
+    "firebase_url": "https://shopeassy-2e18b-default-rtdb.firebaseio.com",
+    "project_id": "shopeassy-2e18b",
+    "storage_bucket": "shopeassy-2e18b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745064970356:android:d267bcc0ed7550b223f921",
+        "android_client_info": {
+          "package_name": "com.refathasan.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745064970356-id54evc4uujorbo5n0rjn12315o4dqo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2AhVMHh6rPtUF0GRoLinJ1Q0S3kW6RBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745064970356-id54evc4uujorbo5n0rjn12315o4dqo7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
