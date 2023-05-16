@@ -47,6 +47,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#FFBEE1C5"
+                android:id="@+id/edt_user_name"
                 android:hint="@string/user_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#BEE1C5"
-
+                android:id="@+id/edt_password"
                 android:hint="@string/password"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>

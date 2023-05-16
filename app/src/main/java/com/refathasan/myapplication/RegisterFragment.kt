@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 
 // TODO: Rename parameter arguments, choose names that match
@@ -43,7 +44,10 @@ class RegisterFragment : Fragment() {
         }
         return view
     }
-
+    /**
+     * validateForm method to check email, password
+     *
+    **/
     private fun validateForm() {
         val icon = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_alert)
         icon?.setBounds(0, 0, icon.intrinsicWidth, icon.intrinsicHeight)
@@ -58,6 +62,26 @@ class RegisterFragment : Fragment() {
 
             TextUtils.isEmpty(confirmPassword.text.toString().trim()) -> {
                 confirmPassword.setError("Please Enter Password Confirmation", icon)
+            }
+
+            userName.text.toString().isNotEmpty() && password.text.toString()
+                .isNotEmpty() && confirmPassword.text.isNotEmpty() -> {
+                //regex email = [a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+
+                if (userName.text.toString().matches(Regex("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"))) {
+                    if (password.text.toString().length >= 5) {
+                        if (password.text.toString() == confirmPassword.text.toString()) {
+                            //temporary Toast message would be change in final version
+                            Toast.makeText(context, "Register Successful", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            confirmPassword.setError("Password mismatched", icon)
+                        }
+                    } else {
+                        password.setError("Please Enter password at least 5 character long", icon)
+                    }
+                } else {
+                    userName.setError("Please Enter valid email-address", icon)
+                }
             }
         }
     }
