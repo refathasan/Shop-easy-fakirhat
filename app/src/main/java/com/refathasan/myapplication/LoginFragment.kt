@@ -57,22 +57,6 @@ class LoginFragment : Fragment() {
 
         }
     }
-
-
-    /**
-     * addOnCompleteListener { task ->
-    {
-    if (task.isSuccessful) {
-    var homeFragment = activity as FragmentNavigationInterface
-    homeFragment.navifateFragment(HomeFragment(), true)
-    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT)
-    .show()
-    } else {
-    Toast.makeText(context, task.exception?.message, Toast.LENGTH_SHORT)
-    }
-    }
-    }
-     */
     private fun validateLoginForm() {
         val icon = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_alert)
         icon?.setBounds(0, 0, icon.intrinsicWidth, icon.intrinsicHeight)
