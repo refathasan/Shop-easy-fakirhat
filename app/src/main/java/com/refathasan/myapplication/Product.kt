@@ -1,5 +1,5 @@
 package com.refathasan.myapplication
 
-class Product(var image:Int, var title:String, var description:String, var price:String) {
+class Product(var image:String, var title:String, var description:String, var price:String) {
 
 }
